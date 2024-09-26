@@ -27,6 +27,27 @@
   <link rel="stylesheet" href="./static/css/index.css">
 
   <script defer src="./static/js/fontawesome.all.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const modal = document.getElementById('infoModal');
+      const openBtn = document.getElementById('openModal');
+      const closeBtn = modal.querySelector('.modal-close');
+      const modalBackground = modal.querySelector('.modal-background');
+
+      openBtn.addEventListener('click', () => {
+        modal.classList.add('is-active');
+      });
+
+      closeBtn.addEventListener('click', () => {
+        modal.classList.remove('is-active');
+      });
+
+      modalBackground.addEventListener('click', () => {
+        modal.classList.remove('is-active');
+      });
+    });
+  </script>
 </head>
 
 <body>
@@ -64,8 +85,19 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Relighting Neural Radiance Fields with Shadow and Highlight Hints
+            <h1 class="title is-1 publication-title">
+              Relighting Neural Radiance Fields with Shadow and Highlight Hints
+              <a style="font-size: smaller;" id="openModal">*</a>
             </h1>
+            <div class="modal" id="infoModal">
+              <div class="modal-background"></div>
+              <div class="modal-content">
+                <div class="box">
+                  <p>Official Alias: NRHints</p>
+                </div>
+              </div>
+              <button class="modal-close is-large" aria-label="close"></button>
+            </div>
             <h2 class="subtitle is-size-4 publication-venue">SIGGRAPH 2023</h2>
             <div class="is-size-5 publication-authors">
               <span class="author-block">
